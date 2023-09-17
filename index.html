@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- YOU NEED TO INCLUDE THE FOLLOWING HTML SOMEWHERE IN YOUR DESIGN -->
+
+
+
+
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHANGE ME</title>
+    <!-- please add a favicon -->
+    <link rel="stylesheet" href="style.css">
+    <script src="playerControls.js" defer></script>
+
+  </head>
+
+  <body>
+
+    <!-- this element holds all of the media player -->
+    <div class="video-player-wrapper">
+      <!-- this element holds the video element and the overlay -->
+      <div class="video_con">
+        <p class="attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/719005078">Art Time, Handheld Windmill / Fan</a>" by
+          <a target="_blank" rel="noopener noreferrer" href="https://vimeo.com/berrybunchfamily">theBerry Bunch</a> is licensed under
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/?ref=openverse">CC BY-NC 4.0
+            <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>.
+        </p>
+      </div>
+      <div class="video-element-wrapper">
+        <video id="videoElement" controls>
+          <source src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/berry-bunch_handheld-windmill-fan.mp4" type="video/mp4">
+        </video>
+        <img id="videoPlayOverlay" src="./icons/play.svg">
+        <div class="video-list">
+          <div><img src="icons/mute.svg" class="mute_icon"/></div>
+          <div><img src="icons/loop.svg" class="loop_icon"/></div>
+          <div class="speed_icon"><img src="icons/img6.png"/></div>
+          <div class="imgLeft"><img src="icons/rewind.svg"/></div>
+          <div class="imgRight"><img src="icons/fastForward.svg"/></div>
+          <div class="fullScreen"><img src="icons/fullScreen.svg"/></div>
+        </div>
+        <div class="speed_Num">X <span class="speed_Num_text">2</span></div>
+        <div class="loop_con">X</div>
+        <div class="volume_con">X</div>
+      </div>
+      <!-- this element holds all of the custom controls -->
+      <div class="video-controls-wrapper" id="controlsWrapper">
+
+        <button class="video-control-button" id="playButton"></button>
+
+        <progress class="video-progress-bar" id="progressBar" value="0"></progress>
+
+      </div>
+
+    </div>
+<!--    <button onclick="js()">dianji </button>-->
+  </body>
+
+</html>
