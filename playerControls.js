@@ -158,32 +158,36 @@ function logEvent(e) {
     console.log(e);
 }
 
+// Code reference：https://developer.mozilla.org/en-US/docs/Web/JavaScript
 // Define multiplier parameters
 // Obtaining the dom element through querySelector defines a parameter as the speed of the video, which is 1 times by default
 // By binding the button (addEventListener()) to a click event, triggering the function, and performing conditional judgment, the maximum speed limit is set to 8 times
 // When it exceeds eight times, it becomes 0.5 times, and a prompt for the current multiple is made in the video. Through the short hidden display of JS's setTimeout, there is an excessive effect that looks softer
 // Display and hide by changing display 'none' and 'block'
-let speed = 1
-let speed_icon = document.querySelector(".speed_icon")
-let speed_Num = document.querySelector(".speed_Num")
-let speed_Num_text = document.querySelector(".speed_Num_text")
-speed_icon.addEventListener('click', function () {
-    if (speed < 8) {
-        speed = speed * 2
-    } else {
-        speed = 0.5
-    }
-    speed_Num.style.display = 'block'
-    speed_Num.style.opacity = '1'
-    setTimeout(function () {
-        speed_Num.style.opacity = '0'
-    }, 300)
-    setTimeout(function () {
-        speed_Num.style.display = 'none'
-    }, 500)
-    speed_Num_text.innerHTML = speed
-    videoElement.playbackRate = speed
-})
+// let speed = 1
+// let speed_icon = document.querySelector(".speed_icon")
+// let speed_Num = document.querySelector(".speed_Num")
+// let speed_Num_text = document.querySelector(".speed_Num_text")
+// speed_icon.addEventListener('click', function () {
+//     if (speed < 8) {
+//         speed = speed * 2
+//     } else {
+//         speed = 0.5
+//     }
+//     speed_Num.style.display = 'block'
+//     speed_Num.style.opacity = '1'
+//     setTimeout(function () {
+//         speed_Num.style.opacity = '0'
+//     }, 300)
+//     setTimeout(function () {
+//         speed_Num.style.display = 'none'
+//     }, 500)
+//     speed_Num_text.innerHTML = speed
+//     videoElement.playbackRate = speed
+// })
+
+
+// Code reference：https://developer.mozilla.org/en-US/docs/Web/JavaScript
 // Define video muting
 // Set a parameter here. By default, there is volume, so the parameter is true. Change the sound of the video by calling the muted attribute of the video, true/false
 // At this point, the click event is also bound and bound through 'addEventListener'
@@ -206,13 +210,12 @@ let time = 10
 let imgLeft = document.querySelector(".imgLeft")
 let imgRight = document.querySelector(".imgRight")
 imgLeft.addEventListener('click', function () {
-
     videoElement.currentTime !== 0 ? videoElement.currentTime -= time : 1;
 })
 imgRight.addEventListener('click', function () {
     videoElement.volume !== videoElement.duration ? videoElement.currentTime += time : 1;
 })
-document.querySelector('.fullScreen').addEventListener('click',function () {
+document.querySelector('.fullScreen').addEventListener('click', function () {
     videoElement.requestFullscreen()
 })
 // Control based on keyboard events
@@ -221,6 +224,9 @@ document.querySelector('.fullScreen').addEventListener('click',function () {
 // Execute the corresponding logical code accordingly
 let vol = 10;
 let volume_con = document.querySelector(".volume_con")
+// The keydown event is fired when a key is pressed.
+// Unlike the deprecated keypress event, the keydown event is fired for all keys, regardless of whether they produce a character value.
+// Use the event name in methods like addEventListener(), or set an event handler property.
 document.addEventListener('keydown', function (event) {
     let e = event || window.event || arguments.callee.caller.arguments[0];
     if (e && e.keyCode === 38) {
@@ -232,12 +238,18 @@ document.addEventListener('keydown', function (event) {
         }
         volume_con.style.display = 'block'
         volume_con.style.opacity = '1'
+        // The time, in milliseconds that the timer should wait before the specified function or code is executed.
+        // If this parameter is omitted, a value of 0 is used, meaning execute "immediately", or more accurately, the next event cycle.
+        // The returned timeoutID is a positive integer value which identifies the timer created by the call to setTimeout().
+        // This value can be passed to clearTimeout() to cancel the timeout.
         setTimeout(function () {
             volume_con.style.opacity = '0'
         }, 300)
         setTimeout(function () {
             volume_con.style.display = 'none'
         }, 500)
+        // A string containing the HTML serialization of the element's descendants.
+        // Setting the value of innerHTML removes all of the element's descendants and replaces them with nodes constructed by parsing the HTML given in the string htmlString.
         volume_con.innerHTML = "Volume:" + vol * 10
         videoElement.volume = vol / 10
     } else if (e && e.keyCode === 40) {
@@ -266,27 +278,29 @@ document.addEventListener('keydown', function (event) {
         videoElement.volume !== videoElement.duration ? videoElement.currentTime += time : 1;
     }
 })
-// Whether to cycle
-// Whether to loop is controlled by opening the loop of the video, and the corresponding value is true/false
-let loopState = false
-let loop_icon = document.querySelector(".loop_icon")
-let loop_con = document.querySelector(".loop_con")
 
-loop_icon.addEventListener('click', function () {
-    loopState = !loopState
-    if (loopState) {
-        loop_icon.src = 'icons/loop.svg'
-    } else {
-        loop_icon.src = 'icons/loop.svg'
-    }
-    videoElement.loop = loopState
-    loop_con.style.display = 'block'
-    loop_con.style.opacity = '1'
-    setTimeout(function () {
-        loop_con.style.opacity = '0'
-    }, 300)
-    setTimeout(function () {
-        loop_con.style.display = 'none'
-    }, 500)
-    loop_con.innerHTML = loopState ? 'Start loop' : 'Close loop'
-})
+
+// // Whether to cycle
+// // Whether to loop is controlled by opening the loop of the video, and the corresponding value is true/false
+// let loopState = false
+// let loop_icon = document.querySelector(".loop_icon")
+// let loop_con = document.querySelector(".loop_con")
+//
+// loop_icon.addEventListener('click', function () {
+//     loopState = !loopState
+//     if (loopState) {
+//         loop_icon.src = 'icons/loop.svg'
+//     } else {
+//         loop_icon.src = 'icons/loop.svg'
+//     }
+//     videoElement.loop = loopState
+//     loop_con.style.display = 'block'
+//     loop_con.style.opacity = '1'
+//     setTimeout(function () {
+//         loop_con.style.opacity = '0'
+//     }, 300)
+//     setTimeout(function () {
+//         loop_con.style.display = 'none'
+//     }, 500)
+//     loop_con.innerHTML = loopState ? 'Start loop' : 'Close loop'
+// })

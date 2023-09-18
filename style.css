@@ -22,7 +22,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #b6e878;
+  /*background: #b6e878;*/
 }
 .video-player-wrapper{
   display: flex;
@@ -135,7 +135,7 @@ footer{
 }
 .video-list img{
   width: 20px;
-  margin-left: 10px;
+
   cursor: pointer;
 }
 .imgLeft{
@@ -152,7 +152,20 @@ footer{
   opacity: 0;
   transition: all 0.3s;
 }
+.video-list>div{
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.video-list>div:hover{
+  background: white;
+}
+.video_con{
+  padding-bottom: 10px;
+  font-family: "Calibri Light";
+}
 @media screen and (max-width: 950px){
   .video-player-wrapper{
     width: 100%;
